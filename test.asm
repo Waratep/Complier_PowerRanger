@@ -1,5 +1,5 @@
 	push	sp
-	push	2
+	push	4
 	add
 	pop	sp
 	push	30
@@ -10,14 +10,18 @@
 	pop	sb[1]
 	push	sb[1]
 	neg
-	push	sb[0]
-	puti
-	push	sb[0]
-	puth
+	push	9
+	pop	sb[2]
+	push	sb[2]
+	neg
 	push	sb[1]
+	push	sb[0]
+	add
+	pop	sb[3]
+	push	sb[3]
+	neg
+	push	sb[3]
 	puti
-	push	sb[1]
-	puth
 	jmp	L999
 L998:
 	push	999999
