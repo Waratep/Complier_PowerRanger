@@ -1,0 +1,22 @@
+
+a = 50d;
+b = 100d;
+c = 23d;
+
+tha(a makgua b){
+    tha(a makgua c){
+        sadangS("a is Max!");
+    }
+}
+
+tha(b makgua a){
+    tha(b makgua c){
+        sadangS("b is Max!");
+    }
+}
+
+tha(c makgua a){
+    tha(c makgua b){
+        sadangS("c is Max!");
+    }
+}
