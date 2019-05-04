@@ -147,7 +147,8 @@ stmt:
         ;
 
 vari:
-          VARIABLE { $$ = id($1, 0); }
+        VARIABLE { $$ = id($1, 0); }
+        | '@' VARIABLE { $$ = id($2, 1); }
         ;
 
 stmt_list:

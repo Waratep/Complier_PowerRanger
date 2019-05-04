@@ -12,7 +12,7 @@ char text[500];
 %%
 
 -?[0-9]+	{
-		  yylval.i = atoi(yytext);
+		  yylval.i = (int64_t)atoi(yytext);
 		  return INT;
 		}
 sb		{
@@ -32,7 +32,7 @@ sp		{
 		  return REG;
 		}
 L[0-9]{3}	{
-		  yylval.i = atoi(yytext + 1); // L123 -> 123
+		  yylval.i = (int64_t)atoi(yytext + 1); // L123 -> 123
 		  return LABEL;
 		}
 
@@ -44,11 +44,11 @@ L[0-9]{3}	{
 <S>\\t		{ strcat(text, "\t"); }
 <S>\\		{ strcat(text, "\\"); }
 
-'\\n'		{ yylval.i = (int) '\n'; return INT; }
-'\\t'		{ yylval.i = (int) '\t'; return INT; }
-'\\''		{ yylval.i = (int) '\''; return INT; }
+'\\n'		{ yylval.i = (int64_t) '\n'; return INT; }
+'\\t'		{ yylval.i = (int64_t) '\t'; return INT; }
+'\\''		{ yylval.i = (int64_t) '\''; return INT; }
 ''		{ yylval.i = 0; return INT; }
-'[^']'		{ yylval.i = (int) yytext[1]; return INT; }
+'[^']'		{ yylval.i = (int64_t) yytext[1]; return INT; }
 
 [:\[\],]	return *yytext;
 call		return CALL;
